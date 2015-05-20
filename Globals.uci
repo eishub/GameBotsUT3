@@ -1,0 +1,21 @@
+`if(`isdefined(debug))
+	`define gblog(message) `log(self $ "_" $ self.GetStateName() $ ": " $ GetFuncName() $ ": " $ `message)
+`else 
+	`define gblog
+`endif
+
+`if(`isdefined(debug))
+	`define LogFatal(message)	`gblog("FATAL:" @ `message)
+	`define LogError(message)	`gblog("ERROR:" @ `message)
+	`define LogWarn(message)	`gblog("WARN:" @ `message)
+	`define LogInfo(message)	`gblog("INFO:" @ `message)
+	`define LogDebug(message)	`gblog("DEBUG:" @ `message)
+	`define LogTrace(message)	`gblog("TRACE:" @ `message)
+`else 
+	`define LogFatal(message)
+	`define LogError(message)
+	`define LogWarn(message)
+	`define LogInfo(message)
+	`define LogDebug(message)
+	`define LogTrace(message)
+`endif
